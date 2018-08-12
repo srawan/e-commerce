@@ -12,12 +12,12 @@ public class ApiExceptionhander {
 	public ResponseEntity<ErrorResponse> handle(ConstraintVoilationException e){
 		ErrorResponse errors = new ErrorResponse();
 		
-		for(ConstraintVoilation voilation : e.getConstrainVoilation()) {
-			ErrorItem error = new ErrorItem();
-			error.setCode(voilation.getMessageTemplate());
-			error.setMessage(voilation.getMessage());
-			errors.addError(error);
-		}
+//		for(ConstraintVoilation voilation : e.getConstrainVoilation()) {
+//			ErrorItem error = new ErrorItem();
+//			error.setCode(voilation.getMessageTemplate());
+//			error.setMessage(voilation.getMessage());
+//			errors.addError(error);
+//		}
 		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	}
 	@ExceptionHandler(ResourceNotFoundException.class)
