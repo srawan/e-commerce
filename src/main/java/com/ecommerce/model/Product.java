@@ -1,12 +1,24 @@
 package com.ecommerce.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.data.annotation.Id;
 
 @Entity
 public class Product {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull(message = "Product name is required")
+	@Basic(optional=false)
 	private String name;
+	
+	
 	private Double price;
 	private String pictureUrl;
 	
